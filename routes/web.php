@@ -20,6 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')->group(function(){
+
+    /*
+     * --------------- admin Authencation ---------
+     */
 //    URL: authen/admin
     Route::get('/','adminController@index')->name('admin.dashboard');
     /*
@@ -54,6 +58,122 @@ Route::prefix('admin')->group(function(){
      * url : admin/logout
      * */
     Route::post('/logout','Auth\Admin\LoginController@logout')->name('admin.auth.logout');
+
+
+    /*
+     * -------------------- Route Admin SHOP-----------
+     * ------------------------------------------------
+     * ------------------------------------------------
+     */
+    Route::get('/shop/category', function(){
+        return view('admin.content.shop.category.index');
+    });
+    Route::get('/shop/product', function(){
+        return view('admin.content.shop.product.index');
+    });
+    Route::get('/shop/order', function(){
+        return view('admin.content.shop.order.index');
+    });
+    Route::get('/shop/customer', function(){
+        return view('admin.content.shop.customer.index');
+    });
+    Route::get('/shop/brand', function(){
+        return view('admin.content.shop.brand.index');
+    });
+    Route::get('/shop/statistic', function(){
+        return view('admin.content.shop.statistic.index');
+    });
+
+    /*
+    * -------------------- Route Admin Nội Dung-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+    Route::get('/content/category', function(){
+        return view('admin.content.content.category.index');
+    });
+    Route::get('/content/page', function(){
+        return view('admin.content.content.page.index');
+    });
+    Route::get('/content/post', function(){
+        return view('admin.content.content.post.index');
+    });
+
+    /*
+    * -------------------- Route Administrator-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+    Route::get('/administrators/administrator', function(){
+        return view('admin.content.administrators.administrator.index');
+    });
+
+    /*
+    * -------------------- Route Admin banner-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/banner/banner', function(){
+        return view('admin.content.banner.banner.index');
+    });
+    /*
+    * -------------------- Route Admin contact-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/contact/contact', function(){
+        return view('admin.content.contact.contact.index');
+    });
+    /*
+    * -------------------- Route Admin email-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/email/draft', function(){
+        return view('admin.content.email.draft.index');
+    });
+    Route::get('/email/inbox', function(){
+        return view('admin.content.email.inbox.index');
+    });
+    Route::get('/email/send', function(){
+        return view('admin.content.email.send.index');
+    });
+
+    /*
+    * -------------------- Route Admin Global setting-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/blobal/setting', function(){
+        return view('admin.content.blobal-setting.setting.index');
+    });
+
+    /*
+    * -------------------- Route Admin media manager-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/media/manager', function(){
+        return view('admin.content.media.manager.index');
+    });
+
+    /*
+    * -------------------- Route Admin menu-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/menu/menu', function(){
+        return view('admin.content.menu.menu.index');
+    });
+    Route::get('/menu/menu-item', function(){
+        return view('admin.content.menu.menu-items.index');
+    });
 });
 
 
