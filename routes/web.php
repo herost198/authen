@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.homepages.index');
 });
 
 Auth::routes();
@@ -65,9 +65,16 @@ Route::prefix('admin')->group(function(){
      * ------------------------------------------------
      * ------------------------------------------------
      */
-    Route::get('/shop/category', function(){
-        return view('admin.content.shop.category.index');
-    });
+    Route::get('/shop/category','Admin\ShopCategoryController@index');
+    Route::get('/shop/category/create','Admin\ShopCategoryController@create');
+    Route::get('/shop/category/{id}/edit','Admin\ShopCategoryController@edit');
+    Route::get('/shop/category/{id}/delete','Admin\ShopCategoryController@delete');
+
+    Route::post('/shop/category','Admin\ShopCategoryController@store');
+    Route::post('/shop/category/{id}','Admin\ShopCategoryController@update');
+    Route::post('/shop/category/{id}/delete','Admin\ShopCategoryController@destroy');
+
+
     Route::get('/shop/product', function(){
         return view('admin.content.shop.product.index');
     });
@@ -100,12 +107,12 @@ Route::prefix('admin')->group(function(){
     });
 
     /*
-    * -------------------- Route Administrator-----------
+    * -------------------- Route Administrator User-----------
     * ------------------------------------------------
     * ------------------------------------------------
     */
-    Route::get('/administrators/administrator', function(){
-        return view('admin.content.administrators.administrator.index');
+    Route::get('/users', function(){
+        return view('admin.content.users.index');
     });
 
     /*
@@ -114,8 +121,8 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     */
 
-    Route::get('/banner/banner', function(){
-        return view('admin.content.banner.banner.index');
+    Route::get('/banner', function(){
+        return view('admin.content.banner.index');
     });
     /*
     * -------------------- Route Admin contact-----------
@@ -123,8 +130,18 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     */
 
-    Route::get('/contact/contact', function(){
-        return view('admin.content.contact.contact.index');
+    Route::get('/contact', function(){
+        return view('admin.content..contact.index');
+    });
+
+    /*
+    * -------------------- Route Admin Newletters-----------
+    * ------------------------------------------------
+    * ------------------------------------------------
+    */
+
+    Route::get('/newletters', function(){
+        return view('admin.content.newletter.index');
     });
     /*
     * -------------------- Route Admin email-----------
@@ -148,8 +165,8 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     */
 
-    Route::get('/blobal/setting', function(){
-        return view('admin.content.blobal-setting.setting.index');
+    Route::get('/config', function(){
+        return view('admin.content.config.index');
     });
 
     /*
@@ -158,8 +175,8 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     */
 
-    Route::get('/media/manager', function(){
-        return view('admin.content.media.manager.index');
+    Route::get('/media', function(){
+        return view('admin.content.media.index');
     });
 
     /*
@@ -168,11 +185,11 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     */
 
-    Route::get('/menu/menu', function(){
+    Route::get('/menu', function(){
         return view('admin.content.menu.menu.index');
     });
-    Route::get('/menu/menu-item', function(){
-        return view('admin.content.menu.menu-items.index');
+    Route::get('/menuitems', function(){
+        return view('admin.content.menu.menuitem.index');
     });
 });
 
