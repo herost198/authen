@@ -14,7 +14,7 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Sản phẩm</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control1" name="name" id="focusedinput" placeholder="Default Input" value="{{$product->name}}">
+                        <input type="text" class="form-control1" name="name"  id="focusedinput" placeholder="Default Input" value="{{$product->name}}">
                     </div>
                 </div>
                 <div class="form-group">

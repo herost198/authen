@@ -49,6 +49,17 @@ class ShopCategoryController extends Controller
 //        print_r($input);
 //        echo '<br>';
 //        die;
+        $validation = $request->validate(
+            [
+                'name'=>'required|max:100',
+                'slug'=>'required',
+                'images'=>'required'
+            ],[
+                'name.required'=>'please enter name',
+                'slug.required'=>'please enter name Slug',
+                'images.required'=>'please enter name image'
+            ]
+        );
         $item = new ShopCategoryModel();
         $item->name = $request->name;
         $item->slug = $request->slug;
@@ -65,6 +76,17 @@ class ShopCategoryController extends Controller
 
     public function update(Request $request,$id)
     {
+        $validation = $request->validate(
+            [
+                'name'=>'required|max:100',
+                'slug'=>'required',
+                'images'=>'required'
+            ],[
+                'name.required'=>'please enter name',
+                'slug.required'=>'please enter name Slug',
+                'images.required'=>'please enter name image'
+            ]
+        );
         $input= $request->all();
         $item = ShopCategoryModel::find($id);
         $item->name = $request->name;

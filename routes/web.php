@@ -111,12 +111,34 @@ Route::prefix('admin')->group(function(){
     * ------------------------------------------------
     * ------------------------------------------------
     */
-    Route::get('/content/category', function(){
-        return view('admin.content.content.category.index');
-    });
-    Route::get('/content/page', function(){
-        return view('admin.content.content.page.index');
-    });
+
+
+    Route::get('/content/category','Admin\ContentCategoryController@index')->middleware();
+    Route::get('/content/category/create','Admin\ContentCategoryController@create');
+    Route::get('/content/category/{id}/edit','Admin\ContentCategoryController@edit');
+    Route::get('/content/category/{id}/delete','Admin\ContentCategoryController@delete');
+
+    Route::post('/content/category','Admin\ContentCategoryController@store');
+    Route::post('/content/category/{id}','Admin\ContentCategoryController@update');
+    Route::post('/content/category/{id}/delete','Admin\ContentCategoryController@destroy');
+
+
+//    Route::get('/content/page', function(){
+//        return view('admin.content.content.page.index');
+//    });
+
+
+    Route::get('/content/page','Admin\ContentPageController@index')->middleware();
+    Route::get('/content/page/create','Admin\ContentPageController@create');
+    Route::get('/content/page/{id}/edit','Admin\ContentPageController@edit');
+    Route::get('/content/page/{id}/delete','Admin\ContentPageController@delete');
+
+    Route::post('/content/page','Admin\ContentPageController@store');
+    Route::post('/content/page/{id}','Admin\ContentPageController@update');
+    Route::post('/content/page/{id}/delete','Admin\ContentPageController@destroy');
+
+
+
     Route::get('/content/post', function(){
         return view('admin.content.content.post.index');
     });

@@ -49,6 +49,23 @@ class ShopProductController extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate(
+            [
+                'name'=>'required|max:100',
+                'slug'=>'required',
+                'images'=>'required',
+                'priceCore'=>'required|numeric',
+                'priceSale'=>'required|numeric',
+                'stock'=>'required|numeric',
+            ],[
+                'name.required'=>'please enter name',
+                'slug.required'=>'please enter name Slug',
+                'images.required'=>'please enter name image',
+                'priceCore.required'=>'please enter name Price Core',
+                'priceSale.required'=>'please enter name Price Sale',
+                'stock.required'=>'please enter name Stock',
+            ]
+        );
         $item = new ShopProductModel();
         $item->name = $request->name;
         $item->slug = $request->slug;
@@ -56,9 +73,10 @@ class ShopProductController extends Controller
         $item->intro = $request->intro;
         $item->desc= $request->desc;
         $item->cat_id = $request->cat_id;
-        echo '<br>';
-        print_r($item);
-        echo '<br>';
+        $item->pricCore = $request->pricCore;
+        $item->priceSale = $request->priceSale;
+        $item->stock = $request->stock;
+
         $item->save();
 
         return redirect('admin/shop/product');
@@ -67,6 +85,24 @@ class ShopProductController extends Controller
 
     public function update(Request $request,$id)
     {
+        $validation = $request->validate(
+            [
+                'name'=>'required|max:100',
+                'slug'=>'required',
+                'images'=>'required',
+                'priceCore'=>'required|numeric',
+                'priceSale'=>'required|numeric',
+                'stock'=>'required|numeric',
+            ],[
+                'name.required'=>'please enter name',
+                'slug.required'=>'please enter name Slug',
+                'images.required'=>'please enter name image',
+                'priceCore.required'=>'please enter name Price Core',
+                'priceSale.required'=>'please enter name Price Sale',
+                'stock.required'=>'please enter name Stock',
+
+            ]
+        );
         $input= $request->all();
         $item = ShopProductModel::find($id);
         $item->name = $request->name;
@@ -75,6 +111,9 @@ class ShopProductController extends Controller
         $item->intro = $request->intro;
         $item->desc= $request->desc;
         $item->cat_id = $request->cat_id;
+        $item->pricCore = $request->pricCore;
+        $item->priceSale = $request->priceSale;
+        $item->stock = $request->stock;
         $item->save();
 
         return redirect('admin/shop/product');

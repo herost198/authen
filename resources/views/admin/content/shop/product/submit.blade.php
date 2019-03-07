@@ -8,13 +8,21 @@
           Sản Phẩm
     </h1>
     <div class="row">
+
+        @if (count($errors) >0 )
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $err)
+                    {{$err}}<br>
+                @endforeach
+            </div>
+        @endif
         <div class="form-three widget-shadow">
             <form class="form-horizontal" name="product" method="post" action="{{url('admin/shop/product')}}">
                 @csrf
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Tên Sản Phẩm</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control1" name="name" id="focusedinput" placeholder="Default Input">
+                        <input type="text" class="form-control1" name="name" value="{{ old('name') }}"  id="focusedinput" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
@@ -32,16 +40,35 @@
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Slug</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control1" name="slug" id="focusedinput" placeholder="Default Input">
+                        <input type="text" class="form-control1" name="slug"  value="{{ old('slug') }}" id="focusedinput" placeholder="Default Input">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="focusedinput" class="col-sm-2 control-label">Images</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control1" name="images" id="focusedinput" placeholder="Default Input">
+                        <input type="text" class="form-control1" name="images"  value="{{ old('images') }}" id="focusedinput" placeholder="Default Input">
                     </div>
                 </div>
 
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Price Core</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" name="priceCore" id="focusedinput"  >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Price Sale</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" name="priceSale" id="focusedinput"  >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="focusedinput" class="col-sm-2 control-label">Stock</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control1" name="stock" id="focusedinput"  >
+
+                    </div>
+                </div>
 
 
                 <div class="form-group">
