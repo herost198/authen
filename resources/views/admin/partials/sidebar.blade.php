@@ -31,6 +31,8 @@
                             <li><a href="{{url('/admin/shop/order')}}"><i class="fa fa-angle-right"></i> Order</a></li>
                             <li><a href="{{url('/admin/shop/review')}}"><i class="fa fa-angle-right"></i> Review</a></li>
                             <li><a href="{{url('/admin/shop/customer')}}"><i class="fa fa-angle-right"></i> Customer</a></li>
+                            <li><a href="{{url('/admin/shop/shipper')}}"><i class="fa fa-angle-right"></i> Shipper</a></li>
+                            <li><a href="{{url('/admin/shop/seller')}}"><i class="fa fa-angle-right"></i> Seller (nhà cung cấp)</a></li>
                             <li><a href="{{url('/admin/shop/brand')}}"><i class="fa fa-angle-right"></i> Brands( Nhãn hiệu)</a></li>
                             <li><a href="{{url('/admin/shop/statistic')}}"><i class="fa fa-angle-right"></i> Statistic (Thống kê)</a></li>
                         </ul>
